@@ -11,12 +11,21 @@ from data_generator import get_registered_user
 
 
 def json_serializer(data):
+    """
+    Method which defines how the values should be serialized
+    :param data: message or record
+    :return: json representation of message
+    """
     return json.dumps(data).encode('utf-8')
 
 
-producer = KafkaProducer(bootstrap_servers=['localhost:9092'],
-                         value_serializer=json_serializer)
+def get_partition(key_bytes, all_partition, available_partition):
+    return 0
 
+
+producer = KafkaProducer(bootstrap_servers=['localhost:9092'],
+                         value_serializer=json_serializer,
+                         partitioner=get_partition)  # To select to which partition send the message
 
 if __name__ == '__main__':
     while True:
