@@ -36,6 +36,7 @@ consumer = KafkaConsumer(
 for msg in consumer:
     print(f"Registered user = {json.loads(msg.value)}")
 ```
-4. Tested that same partition cannot be assigned to multiple consumer in same group. If they belong to different consumer group, then everything is fine.
+4. Tested that same partition cannot be assigned to multiple consumer in same group. If they belong to different consumer group, then everything is fine. In this case we have only 1 partition with 2 consumers.
 
 <img src="images/2_kafka_consumer_groups.png">
+5. If we have 2 partitions and 2 consumers inside the topic, then everything is OK. So, the message from one partition will go to one consumer, and message from another to second consumer.

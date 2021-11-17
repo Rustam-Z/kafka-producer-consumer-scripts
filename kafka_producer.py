@@ -19,13 +19,20 @@ def json_serializer(data):
     return json.dumps(data).encode('utf-8')
 
 
-def get_partition(key_bytes, all_partition, available_partition):
-    return 0
+# def get_partition(key_bytes, all_partition, available_partition):
+#     """
+#     If you want to push only to specific partition of the topic, you can specify it here.
+#     :param key_bytes:
+#     :param all_partition:
+#     :param available_partition:
+#     :return:
+#     """
+#     return 0
 
 
 producer = KafkaProducer(bootstrap_servers=['localhost:9092'],
                          value_serializer=json_serializer,
-                         partitioner=get_partition)  # To select to which partition send the message
+                         )  # partitioner=get_partition # To select to which partition send the message
 
 if __name__ == '__main__':
     while True:
