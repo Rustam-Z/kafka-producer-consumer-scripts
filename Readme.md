@@ -36,3 +36,6 @@ consumer = KafkaConsumer(
 for msg in consumer:
     print(f"Registered user = {json.loads(msg.value)}")
 ```
+4. Tested that same partition cannot be assigned to multiple consumer in same group. If they belong to different consumer group, then everything is fine.
+
+<img src="images/2_kafka_consumer_groups.png">
