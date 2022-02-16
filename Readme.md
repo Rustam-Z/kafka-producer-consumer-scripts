@@ -1,4 +1,4 @@
-# kafka-producers-consumers
+# Apche Kafka Producers & Consumers in Python 
 Learning Apache Kafka Producers and Consumers
 
 1. Created function for generating data
